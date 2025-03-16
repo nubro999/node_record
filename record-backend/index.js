@@ -1,4 +1,5 @@
 // index.js 파일 내에 직접 추가
+
 const express = require('express');
 const dotenv = require('dotenv');
 const { OpenAI } = require('openai');
@@ -26,7 +27,7 @@ app.post('/api/analyze-diary', async (req, res) => {
     }
     
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       messages: [
         {
           role: "system",
@@ -59,6 +60,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log(`서버가 포트 ${port}에서 실행 중입니다`);
+app.listen(PORT, () => {
+  console.log(`서버가 포트 ${PORT}에서 실행 중입니다`);
 });
+
